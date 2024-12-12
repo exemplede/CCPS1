@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets - Centre de Compétence Pluridisciplinaire</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Barre de navigation -->
+{% include "CCPS/header.html" %}
+
+<!-- Section Projets -->
+<section class="project-section">
+  <div class="container">
+    <h2 class="project-title">Nos Projets</h2>
+    <div class="row">
+      <!-- Carte pour chaque projet -->
+      <div class="col-lg-6 mb-4">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/600x400" alt="Projet Suivi des Troupeaux">
+          <div class="project-card-body">
+            <h3 class="project-card-title">Suivi des Troupeaux</h3>
+            <p class="project-card-text">Projet de surveillance des troupeaux pour la protection des ressources animales.</p>
+            <a href="livestock-monitoring.html" class="btn btn-primary">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/600x400" alt="Projet Robots Compétitifs">
+          <div class="project-card-body">
+            <h3 class="project-card-title">Développement de Robots Compétitifs</h3>
+            <p class="project-card-text">Création de robots pour le développement des compétences en robotique.</p>
+            <a href="competing-robots.html" class="btn btn-primary">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pied de Page -->
+<footer class="footer">
+    <div class="container">
+      <h3>Centre de Compétence Pluridisciplinaire</h3>
+      <p>Bienvenue sur notre site officiel !</p>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Liens Rapides</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">À Propos</a></li>
+            <li><a href="#">Nos Missions</a></li>
+            <li><a href="#">Équipements</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4>Contactez-Nous</h4>
+          <p>Email: contact@centrepluridisciplinaire.com</p>
+          <p>Téléphone: +123 456 7890</p>
+        </div>
+        <div class="col-md-4">
+          <h4>Suivez-Nous</h4>
+          <div class="social-icons">
+            <a href="#" class="bi bi-facebook"></a>
+            <a href="#" class="bi bi-twitter"></a>
+            <a href="#" class="bi bi-linkedin"></a>
+            <a href="#" class="bi bi-instagram"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>

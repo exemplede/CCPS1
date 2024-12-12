@@ -1,0 +1,135 @@
+{% extends 'CCPS/base.html' %}
+
+{% block title %}
+  home
+{% endblock %}
+
+{% block style %}
+  <style>
+    /* Couleur bordeaux pour la barre de navigation */
+    .navbar {
+      background-color: #800020; /* Couleur de fond rouge bordeaux */
+    }
+    
+    /* Alignement des onglets à droite sur les grands écrans */
+    .navbar-nav {
+      margin-left: auto;
+    }
+    
+    .navbar-toggler {
+      border-color: white;
+    }
+    
+    .navbar-toggler-icon {
+      color: white;
+    }
+    
+    /* Ajout d'une marge pour le logo */
+    .navbar-brand {
+      margin-right: 20px;
+    }
+    
+    /* Ajout d'un espace pour compenser la barre de navigation fixe */
+    body {
+      padding-top: 60px; /* Ajuste la valeur si nécessaire */
+    }
+   
+  </style>
+{% endblock %}
+
+{% block content %}
+  <section class="full-window-section">
+    <div class="section-content">
+      <h1 class="main-text">Centre De Compétence Pluridisciplinaire</h1>
+      <p class="welcome-text">Bienvenue dans le site officiel</p>
+      <p class="welcomse-text">Nous vous proposons une large gamme de services et d'innovations pour renforcer vos compétences.</p>
+      <P>{{visit_count}} visites</P>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="row content-section">
+      
+      <!-- Image à gauche -->
+      <div class="col-lg-6 text-center image-container">
+        <img src="https://via.placeholder.com/500" alt="Image" class="image-section" />
+      </div>
+      <!-- Textec
+        <!-- Description à droite -->
+        <div class="col-lg-8 description-box">
+          <div class="description-text">Découvrez nos principales missions qui visent à favoriser le développement local et encourager les innovations pour un avenir durable.</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="composition.html" style="text-decoration: none; color: inherit;">
+      <div class="row section-container">
+        <!-- Cercle à gauche -->
+        <div class="col-lg-4 circle">Composition</div>
+        <!-- Description à droite -->
+        <div class="col-lg-8 description-box">
+          <div class="description-text">Notre équipe est composée de professionnels dévoués issus de plusieurs disciplines, unissant leurs forces pour un impact positif.</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Section pour Équipement -->
+    <a href="equipement.html" style="text-decoration: none; color: inherit;">
+      <div class="row section-container">
+        <!-- Cercle à gauche -->
+        <div class="col-lg-4 circle">Équipement</div>
+        <!-- Description à droite -->
+        <div class="col-lg-8 description-box">
+          <div class="description-text">Nous utilisons un équipement de pointe qui permet d'accélérer la recherche et le développement dans nos domaines d'expertise.</div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <section class="actualites-section">
+    <div class="container">
+        <!-- Titre de la section -->
+        <h2 class="actualites-title">Actualité aux CCPS</h2>
+        <div class="row">
+        <!-- Carte d'actualité  -->
+            {% for article in articles %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="{% url 'articleDetails' article.id %}">
+                    <div class="actualite-card">
+                        <div class="actualite-date">{{ article.created_at | date }}</div>
+                        <img src={{ article.images.first.img.url }} alt="Actualité 1" />
+                        <div class="card-body">
+                          <h3 class="card-title">{{article.title}}</h3>
+                          <p class="card-text">{{ article }}</p>
+                        </div>
+                      </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+  </section>
+
+  <!-- Section Partenaires -->
+  <section class="partenaires-section">
+    <div class="container">
+      <!-- Titre de la section -->
+      <h2 class="partenaires-title">Nos Partenaires</h2>
+
+      <!-- Conteneur pour les logos -->
+      <div class="partenaires-container">
+        <div class="row justify-content-center">
+          <!-- Logo partenaire 1 -->
+          <div class="col-3 col-md-2 mb-4 text-center">
+            <img src="https://via.placeholder.com/150x100" alt="Partenaire 1" class="partenaire-logo" />
+          </div>
+
+          <!-- Logo partenaire 2 -->
+          <div class="col-3 col-md-2 mb-4 text-center">
+            <img src="https://via.placeholder.com/150x100" alt="Partenaire 2" class="partenaire-logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

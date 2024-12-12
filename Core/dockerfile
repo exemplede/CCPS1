@@ -1,0 +1,7 @@
+FROM python3
+
+COPY . /APP/
+
+WORKDIR /APP
+
+CMD [ "sh", "-c", "manage.py", "runserver"]

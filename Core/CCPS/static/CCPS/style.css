@@ -1,0 +1,341 @@
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration:none;
+}
+
+
+body {
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.full-window-section {
+    background-image: url('https://via.placeholder.com/1920x1080'); /* Remplace cette URL avec ton image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Texte centré */
+  .section-content {
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour le texte */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  /* Animation pour le texte principal */
+  .main-text {
+    font-size: 3em;
+    font-weight: bold;
+    animation: textAnimation 3s ease-in-out infinite;
+  }
+
+  /* Animation pour le texte d'accueil */
+  .welcome-text {
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
+
+  /* Animation du texte principal */
+  @keyframes textAnimation {
+    0% { opacity: 0; transform: translateY(-20px); }
+    50% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+  }
+
+  /* Style pour l'image avec bordure bordeaux */
+  .image-section {
+    border: 5px solid #800020; /* Bordure bordeaux */
+    border-radius: 10px; /* Arrondir les coins */
+    max-width: 100%; /* S'assure que l'image ne dépasse pas */
+  }
+  
+  /* Style pour la section contenant l'image et le texte */
+  .content-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+  }
+
+  .text-section {
+    padding: 20px;
+  }
+
+  /* Responsive: empiler l'image et le texte sur petits écrans */
+  @media (max-width: 768px) {
+    .content-section {
+      flex-direction: column; /* Met l'image au-dessus du texte sur petits écrans */
+    }
+    .text-section {
+      text-align: center; /* Centrer le texte */
+    }
+  }
+
+  /* Effet graphique pour la section */
+  .content-section {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour donner de la profondeur */
+    background: #f9f9f9; /* Fond léger pour contraster */
+    border-radius: 10px; /* Arrondir les coins de la section entière */
+  }
+
+  /* Bordures de l'image qui attirent l'œil */
+  .image-container {
+    padding: 10px;
+    background-color: #800020; /* Fond rouge bordeaux derrière l'image */
+    border-radius: 10px; /* Coins arrondis pour tout le conteneur */
+  }
+
+  /* Style général pour la section */
+  .section-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+  }
+
+  /* Style pour le cercle */
+  .circle {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #800020; /* Bordure bordeaux */
+    border-right: none; /* Partie droite ouverte */
+    border-radius: 50%; /* Cercle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #800020; /* Fond bordeaux */
+    color: #fff; /* Couleur du texte dans le cercle */
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  /* Partie droite avec les deux lignes parallèles */
+  .description-box {
+    position: relative;
+    padding-left: 20px;
+    margin-left: -5px; /* S'assurer que ça colle bien au cercle */
+  }
+
+  .description-box::before, .description-box::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #800020;
+  }
+
+  /* Ligne supérieure */
+  .description-box::before {
+    top: 0;
+  }
+
+  /* Ligne inférieure */
+  .description-box::after {
+    bottom: 0;
+  }
+
+  /* Style du texte à l'intérieur des lignes */
+  .description-text {
+    padding: 20px;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de profondeur */
+  }
+
+  /* Responsive: disposition en colonne sur petits écrans */
+  @media (max-width: 768px) {
+    .section-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .circle {
+      margin-bottom: 20px;
+    }
+
+    .description-box {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .description-box::before, .description-box::after {
+      display: none; /* On cache les lignes parallèles sur petits écrans */
+    }
+  }
+  :root {
+    --main-color: #6a0d45; /* Violet foncé proche du bordeaux */
+  }
+
+  /* Style de la section actualité */
+  .actualites-section {
+    background-color: #f5f5f5;
+    padding: 60px 0;
+  }
+
+  .actualites-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--main-color);
+  }
+
+  /* Cartes pour les actualités */
+  .actualite-card {
+    background-color: #fff;
+    border: 2px solid var(--main-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  /* Effet de zoom au survol */
+  .actualite-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Image d'actualité */
+  .actualite-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--main-color);
+  }
+
+  /* Contenu de la carte */
+  .actualite-card .card-body {
+    padding: 20px;
+  }
+
+  .actualite-card .card-title {
+    color: var(--main-color);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .actualite-card .card-text {
+    color: #333;
+    font-size: 1em;
+  }
+
+  /* Date de l'actualité en haut à droite */
+  .actualite-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-size: 0.9em;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .actualite-card img {
+      height: 150px;
+    }
+  }
+ /* Style de la section partenaires */
+ .partenaires-section {
+  background-color: #f5f5f5;
+  padding: 60px 0;
+}
+
+.partenaires-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #6a0d45; /* Couleur en harmonie avec le reste du site */
+}
+
+.partenaires-container {
+  background-color: #f0f0f0; /* Blanc sale */
+  padding: 30px;
+  border-radius: 20px; /* Contours arrondis */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.partenaire-logo {
+  transition: transform 0.3s ease;
+  max-height: 100px; /* Hauteur maximale des logos */
+}
+
+.partenaire-logo:hover {
+  transform: scale(1.1); /* Agrandissement au survol */
+}
+
+/* Disposition responsive */
+@media (max-width: 768px) {
+  .partenaire-logo {
+    max-height: 80px; /* Réduire la taille sur petits écrans */
+  }
+}
+/* Style du footer */
+.footer {
+  background-color: #3c2a3c; /* Couleur complémentaire au rouge bordeaux */
+  color: #ffffff; /* Couleur du texte */
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer h3 {
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out; /* Animation d'apparition */
+}
+
+.footer p {
+  text-align: center;
+  font-size: 1.1em;
+  animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+}
+
+.footer a {
+  color: #ffcccc; /* Couleur des liens */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffffff; /* Changer la couleur au survol */
+  text-decoration: underline;
+}
+
+/* Effets des icônes de réseaux sociaux */
+.social-icons a {
+  font-size: 2em;
+  margin: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2); /* Agrandissement au survol */
+  color: #ffcccc; /* Couleur au survol */
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

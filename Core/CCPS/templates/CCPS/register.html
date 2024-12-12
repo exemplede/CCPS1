@@ -1,0 +1,50 @@
+{% extends 'CCPS/base.html' %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block style %}
+  <style>
+    main {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      background: blue;
+      align-items: center;
+    }
+    form {
+      background-color: red;
+      height: 10vh;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div class="container">
+      <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        <label for="fullname">fullname</label>
+        <input type="text" name="fullname" id="fullname" placeholder="enter a fullname" />
+
+        <label for="email">email</label>
+        <input type="email" name="email" id="email" placeholder="example@gamil.com" />
+
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" placeholder="enter a password" />
+
+        <label for="re_password">password</label>
+        <input type="password" name="re_password" id="re_password" placeholder="confirm the password" />
+
+        <button type="submit">login</button>
+
+        <p>
+          Already registered ?
+          <a href="{% url 'login' %}">yes</a>
+        </p>
+      </form>
+    </div>
+  </main>
+{% endblock %}
