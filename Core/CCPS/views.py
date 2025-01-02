@@ -24,8 +24,7 @@ def equipementsView(request):
     return render(request, 'CCPS/equipement.html')
 
 
-def projetsView(request):
-    return render(request, 'CCPS/projets.html')
+
 
 
 def loginView(request):
@@ -146,3 +145,17 @@ def imageDeleteView(request, pk):
     image.delete()
     
     return redirect(to='articleEdit', pk=image.article.pk)
+
+def missionView(request):
+    return render(request, "CCPS/mission.html")
+
+def equipeView(request):
+    return render(request, "CCPS/equipe.html")
+
+def projetsView(request):
+    return render(request, 'CCPS/projets.html')
+
+def contView(request):
+    return render(request, 'CCPS/cont.html')
+def propos1View(request):
+    return render(request, 'CCPS/propos1.html')

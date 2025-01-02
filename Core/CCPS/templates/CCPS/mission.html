@@ -1,0 +1,200 @@
+{% extends 'CCPS/base.html' %}
+{% load static %}
+
+{% block title %}
+  mission
+{% endblock %}
+
+{% block style %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding-top: 60px;
+    }
+
+    /* Entête */
+    .navbar {
+      background-color: #800020;
+    }
+
+    .navbar-nav {
+      margin-left: auto;
+    }
+
+    /* Section Nos Missions */
+    .missions-section {
+      background-color: #f2f2f2;
+      padding: 60px 20px;
+      text-align: center;
+      color: #800020;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Formes géométriques animées */
+    .circle {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(128, 0, 32, 0.2);
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      animation: moveCircle 8s infinite alternate;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 200px solid rgba(128, 0, 32, 0.2);
+      position: absolute;
+      bottom: -100px;
+      left: -50px;
+      animation: rotateTriangle 10s infinite alternate;
+    }
+
+    /* Animation des formes */
+    @keyframes moveCircle {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-100px, 100px); }
+    }
+
+    @keyframes rotateTriangle {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Cartes des missions */
+    .mission-item {
+      border: 3px solid #800020;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .mission-item::before {
+      content: '';
+      width: 200px;
+      height: 200px;
+      background-color: rgba(128, 0, 32, 0.1);
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      border-radius: 50%;
+      animation: scaleShape 6s infinite alternate;
+    }
+
+    @keyframes scaleShape {
+      from { transform: scale(1); }
+      to { transform: scale(1.5); }
+    }
+
+    .mission-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .mission-text {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Animation du texte */
+    .mission-item p {
+      position: relative;
+      opacity: 0;
+      animation: fadeInUp 1s forwards ease-in-out;
+    }
+
+    .mission-item:nth-child(1) p {
+      animation-delay: 0.3s;
+    }
+
+    .mission-item:nth-child(2) p {
+      animation-delay: 0.6s;
+    }
+
+    .mission-item:nth-child(3) p {
+      animation-delay: 0.9s;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #3c2a3c;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Ajout d'une animation sur le footer */
+    .footer:hover {
+      background-color: #3c2a3c;
+      transition: background-color 0.5s ease;
+    }
+  </style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Section btNos Missions -->
+<section class="missions-section ">
+  <h1 class="mb-5">Nos Principales Missions</h1>
+
+  <div class="circle"></div>
+  <div class="triangle"></div>
+
+  <div class="container">
+    <!-- Mission 1 -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-8 mission-item">
+        <h2 class="mission-title">Besoin urgent d’apporter des solutions techniques aux problèmes de la société</h2>
+        <p class="mission-text">Nous visons à répondre aux défis critiques en fournissant des solutions innovantes qui améliorent les conditions de vie et résolvent les problèmes sociaux et économiques.</p>
+      </div>
+    </div>
+
+    <!-- Mission 2 -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-8 mission-item">
+        <h2 class="mission-title">Besoin de développer des compétences clé et stratégiques</h2>
+        <p class="mission-text">Nous nous engageons à former et développer des compétences essentielles qui renforcent les capacités locales et stimulent la compétitivité dans le monde moderne.</p>
+      </div>
+    </div>
+
+    <!-- Mission 3 -->
+    <div class="row justify-content-center">
+      <div class="col-md-8 mission-item">
+        <h2 class="mission-title">Besoin de faire des réalisations majeures avec les spécificités du contexte Université Nazi Boni</h2>
+        <p class="mission-text">Nous collaborons étroitement avec l'Université Nazi Boni pour favoriser des initiatives locales qui répondent aux besoins spécifiques de la communauté et encouragent le développement endogène.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

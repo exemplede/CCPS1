@@ -1,34 +1,35 @@
 <!-- Pied de Page -->
+{% load static %}
 <footer class="footer">
   <div class="container">
-    <h3>Centre de Compétence Pluridisciplinaire</h3>
-    <p>Bienvenue sur notre site officiel !</p>
+    <h3>Centre de Compétences Pluridisciplinaires et Solution</h3>
+    
 
     <div class="row">
       <div class="col-md-4">
         <h4>Liens Rapides</h4>
         <ul class="list-unstyled">
           <li>
-            <a href="#">Accueil</a>
+            <a href="{% url "home" %}">Accueil</a>
           </li>
           <li>
-            <a href="a propos.html">À Propos</a>
+            <a href="{% url "about" %}">À Propos</a>
           </li>
           <li>
-            <a href="mission.html">Nos Missions</a>
+            <a href="{% url "mission" %}">Nos Missions</a>
           </li>
           <li>
-            <a href="#">Équipements</a>
+            <a href="{% url "propos1" %}">Équipements</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="{% url "cont" %}">Contact</a>
           </li>
         </ul>
       </div>
       <div class="col-md-4">
-        <h4>Contactez-Nous</h4>
-        <p>Email: contact@centrepluridisciplinaire.com</p>
-        <p>Téléphone: +226 456 7890/ 56 56 56 56 /56 56 56 56</p>
+        <h4 style="text-align : center">Contactez-Nous</h4>
+        <p>Email:contact@centrepluridisciplinaire.com</p>
+        <p>Tel  :+226 456 7890/ 56 56 56 56 /56 56 56 56</p>
       </div>
       <div class="col-md-4">
         <h4>Suivez-Nous</h4>

@@ -1,0 +1,180 @@
+{% extends 'CCPS/base.html' %}
+{% load static %}
+
+{% block title %}
+  projets
+{% endblock %}
+
+{% block style %}
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+  }
+  :root {
+      --primary-color: #800020;
+      --secondary-color: #ff5c33;
+      --background-gradient: linear-gradient(135deg, #800020 0%, #ff5c33 100%);
+  }
+  .contact-header {
+      background: var(--background-gradient);
+      color: #fff;
+      padding: 5rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+  }
+  .contact-header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+  }
+  .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      animation: float 6s ease-in-out infinite;}
+  .shape1 { width: 150px; height: 150px; top: 10%; left: 5%; }
+  .shape2 { width: 100px; height: 100px; bottom: 15%; right: 10%; }
+  @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+  }
+  .form-control:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0px 0px 8px rgba(255, 92, 51, 0.4);
+      transition: all 0.2s ease;
+  }
+  .form-group label {
+      color: var(--primary-color);
+      font-weight: 500;
+      font-size: 1.1rem;
+  }
+  .btn-submit {
+      background: var(--secondary-color);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      transition: all 0.3s ease;
+  }
+  .btn-submit:hover {
+      background: #ff704d;
+      transform: scale(1.05);
+  }
+
+      /* Couleur bordeaux pour la barre de navigation */
+      .navbar {
+        background-color: #800020; /* Couleur de fond rouge bordeaux */
+      }
+  
+      /* Alignement des onglets à droite sur les grands écrans */
+      .navbar-nav {
+        margin-left: auto;
+      }
+  
+      .navbar-toggler {
+        border-color: white;
+      }
+  
+      .navbar-toggler-icon {
+        color: white;
+      }
+  
+      /* Ajout d'une marge pour le logo */
+      .navbar-brand {
+        margin-right: 20px;
+      }
+  
+      /* Ajout d'un espace pour compenser la barre de navigation fixe */
+      body {
+        padding-top: 60px; /* Ajuste la valeur si nécessaire */
+      }
+  </style>
+{% endblock style %}
+
+{% block content %}
+<header class="contact-header">
+  <h1>Contactez-nous</h1>
+  <p>Nous sommes là pour répondre à toutes vos questions. Remplissez le formulaire ci-dessous pour nous envoyer un message directement via WhatsApp.</p>
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+</header>
+
+<section class="container my-5">
+  <div class="row">
+      <!-- Message de gauche -->
+      <div class="col-md-4 mb-4">
+          <div class="p-4 border rounded" style="background: var(--primary-color); color: #fff;">
+              <h4>Poser votre préoccupation</h4>
+              <p>Remplissez les informations nécessaires et cliquez sur envoyer. Vous serez redirigé vers WhatsApp avec votre message pré-écrit.</p>
+          </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="col-md-8">
+          <form id="contactForm">
+              <div class="mb-3">
+                  <label for="name" class="form-label">Nom complet</label>
+                  <input type="text" class="form-control" id="name" placeholder="Votre nom">
+              </div>
+              
+              <div class="mb-3">
+                  <label for="email" class="form-label">Adresse email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Votre email">
+              </div>
+              
+              <div class="mb-3">
+                  <label for="phone" class="form-label">Numéro de téléphone</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="Votre numéro de téléphone">
+              </div>
+              
+              <div class="mb-3">
+                  <label for="subject" class="form-label">Sujet</label>
+                  <select class="form-select" id="subject">
+                      <option value="" selected disabled>Choisissez un sujet</option>
+                      <option value="Demande d'information">Demande d'information</option>
+                      <option value="Support technique">Support technique</option>
+                      <option value="Retour d'expérience">Retour d'expérience</option>
+                      <option value="Autre">Autre</option>
+                  </select>
+              </div>
+              
+              <div class="mb-3">
+                  <label for="message" class="form-label">Votre message</label>
+                  <textarea class="form-control" id="message" rows="4" placeholder="Décrivez votre message"></textarea>
+              </div>
+
+              <div class="text-center">
+                  <button type="button" class="btn btn-submit btn-lg px-5" onclick="sendToWhatsApp()">Envoyer via WhatsApp</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+
+<!-- JS Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script pour l'envoi vers WhatsApp -->
+<script>
+  function sendToWhatsApp() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && phone && subject && message) {
+          const whatsappNumber = "votre_numero_de_whatsapp";
+          const whatsappMessage = `Bonjour, je m'appelle ${name}.%0AEmail : ${email}%0ATéléphone : ${phone}%0ASujet : ${subject}%0A%0AMessage : ${message}`;
+
+          window.open(`https://wa.me/${+22656603913}?text=${whatsappMessage}`, '_blank');
+      } else {
+          alert("Veuillez remplir tous les champs.");
+      }
+  }
+</script>
+
+
+
+{% endblock content %}

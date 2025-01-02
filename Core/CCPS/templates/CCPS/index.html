@@ -1,4 +1,5 @@
 {% extends 'CCPS/base.html' %}
+{% load static %}
 
 {% block title %}
   home
@@ -33,6 +34,103 @@
     body {
       padding-top: 60px; /* Ajuste la valeur si nécessaire */
     }
+
+    .content-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 0;
+    }
+    .visit-section {
+      padding: 30px 0;
+    }
+    
+    /* Panneau en verre avec effet */
+    .glass-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: popIn 1.2s ease-in-out;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Effet de dégradé animé */
+    .glass-panel::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+      animation: moveGradient 5s infinite linear;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Contenu principal */
+    .visit-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .visit-display {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .visit-count {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #ffdd00;
+      margin: 0;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .visit-text {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+    
+    /* Animations */
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes moveGradient {
+      from {
+        transform: translate(0, 0);
+      }
+      to {
+        transform: translate(50%, 50%);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
    
   </style>
 {% endblock %}
@@ -43,44 +141,87 @@
       <h1 class="main-text">Centre De Compétence Pluridisciplinaire</h1>
       <p class="welcome-text">Bienvenue dans le site officiel</p>
       <p class="welcomse-text">Nous vous proposons une large gamme de services et d'innovations pour renforcer vos compétences.</p>
-      <P>{{visit_count}} visites</P>
     </div>
   </section>
 
   <section class="container">
     <div class="row content-section">
-      
       <!-- Image à gauche -->
       <div class="col-lg-6 text-center image-container">
-        <img src="https://via.placeholder.com/500" alt="Image" class="image-section" />
+        <img src={% static "CCPS/design.png" %} alt="CCPS" class="image-section">
       </div>
-      <!-- Textec
-        <!-- Description à droite -->
-        <div class="col-lg-8 description-box">
-          <div class="description-text">Découvrez nos principales missions qui visent à favoriser le développement local et encourager les innovations pour un avenir durable.</div>
+      <!-- Texte à droite -->
+      <div class="col-lg-6 text-section">
+        <h2>À propos </h2>
+        <p>
+          Le Centre de Compétences Pluridisciplinaires et Solutions a été créé pour apporter des solutions innovantes et favoriser le développement endogène. 
+          Notre mission est de promouvoir la recherche, le développement, et l'innovation afin de renforcer les compétences locales et d'améliorer les capacités.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <div class="row justify-content-center align-items-center visit-section">
+      <!-- Conteneur principal -->
+      <div class="col-lg-10 text-center glass-panel">
+        <h2 class="visit-title">Nombre de Visites</h2>
+        <div class="visit-display">
+          <p class="visit-count">{{ visit_count }}</p>
+          <p class="visit-text">visites enregistrées</p>
         </div>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="composition.html" style="text-decoration: none; color: inherit;">
+  
+
+  <section class="container">
+    <a href="{% url 'mission' %}" style="text-decoration: none; color: inherit; " >
+    <div class="row section-container " >
+      <!-- Lien vers la page Nos Missions -->
+     
+        <!-- Cercle à gauche -->
+        <div class="col-lg-4 circle  " >
+          Missions
+        </div>
+        <!-- Description à droite -->
+        <div class="col-lg-8 description-box">
+          <div class="description-text">
+            Découvrez nos principales missions qui visent à favoriser le développement local et encourager les innovations pour un avenir durable.
+          </div>
+        </div>
+      
+    </div>
+  </a>
+  
+    <a href="{% url "equipe" %}"style="text-decoration: none; color: inherit;">
       <div class="row section-container">
         <!-- Cercle à gauche -->
-        <div class="col-lg-4 circle">Composition</div>
+        <div class="col-lg-4 circle">
+          Equipe
+        </div>
         <!-- Description à droite -->
         <div class="col-lg-8 description-box">
-          <div class="description-text">Notre équipe est composée de professionnels dévoués issus de plusieurs disciplines, unissant leurs forces pour un impact positif.</div>
+          <div class="description-text">
+            Notre équipe est composée de professionnels dévoués issus de plusieurs disciplines, unissant leurs forces pour un impact positif.
+          </div>
         </div>
       </div>
     </a>
-
+    
     <!-- Section pour Équipement -->
     <a href="equipement.html" style="text-decoration: none; color: inherit;">
       <div class="row section-container">
         <!-- Cercle à gauche -->
-        <div class="col-lg-4 circle">Équipement</div>
+        <div class="col-lg-4 circle">
+          Équipements
+        </div>
         <!-- Description à droite -->
         <div class="col-lg-8 description-box">
-          <div class="description-text">Nous utilisons un équipement de pointe qui permet d'accélérer la recherche et le développement dans nos domaines d'expertise.</div>
+          <div class="description-text">
+            Nous utilisons un équipement de pointe qui permet d'accélérer la recherche et le développement dans nos domaines d'expertise.
+          </div>
         </div>
       </div>
     </a>
@@ -115,19 +256,26 @@
     <div class="container">
       <!-- Titre de la section -->
       <h2 class="partenaires-title">Nos Partenaires</h2>
-
+      
       <!-- Conteneur pour les logos -->
       <div class="partenaires-container">
+         
         <div class="row justify-content-center">
           <!-- Logo partenaire 1 -->
-          <div class="col-3 col-md-2 mb-4 text-center">
-            <img src="https://via.placeholder.com/150x100" alt="Partenaire 1" class="partenaire-logo" />
-          </div>
-
+          
+          <div class="col-12 col-sm-6 col-md-4 mb-4 text-center mx-auto">
+            <a href="https://www.rohde-schwarz.com" style="text-decoration: none;">
+                <img src="{% static 'CCPS/logo.png' %}" alt="Rhode&Schwarz" class="partenaire-logo img-fluid">
+            </a>
+        </div>
+        
+          
+  
           <!-- Logo partenaire 2 -->
-          <div class="col-3 col-md-2 mb-4 text-center">
-            <img src="https://via.placeholder.com/150x100" alt="Partenaire 2" class="partenaire-logo" />
-          </div>
+           
+        
+  
+         
         </div>
       </div>
     </div>

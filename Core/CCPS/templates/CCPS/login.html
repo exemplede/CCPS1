@@ -3,28 +3,78 @@
 {% block title %}
   Login
 {% endblock %}
+{% block style %}
+  <style>
+    .bg-primary {
+      background-color: #f5f5f5 !important;
+    }
+    
+    .dynamic-card {
+      animation: fadeIn 1s ease-in-out;
+      transform: translateY(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .dynamic-card:hover {
+      transform: translateY(0);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .bg-bordeaux {
+      background-color: #800020 !important;
+    }
+    
+    .text-bordeaux {
+      color: #800020 !important;
+    }
+    
+    .btn-bordeaux {
+      background-color: #800020;
+      color: white;
+      border: none;
+    }
+    
+    .btn-bordeaux:hover {
+      background-color: #990033;
+      color: #fff;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+  </style>
+{% endblock style %}
 
 {% block content %}
   <main class="d-flex align-items-center justify-content-center vh-100 bg-primary">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="card">
+          <div class="card shadow-lg border-0 rounded-lg dynamic-card">
+            <div class="card-header text-center bg-bordeaux text-white">
+              <h3>Login</h3>
+            </div>
             <div class="card-body">
               <form action="{% url 'login' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+                  <label for="email" class="text-bordeaux">Email</label>
+                  <input type="email" class="form-control rounded-pill" name="email" id="email" placeholder="Enter your email" required>
                 </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+                <div class="form-group mt-3">
+                  <label for="password" class="text-bordeaux">Password</label>
+                  <input type="password" class="form-control rounded-pill" name="password" id="password" placeholder="Enter your password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <button type="submit" class="btn btn-bordeaux btn-block mt-4 rounded-pill">Login</button>
                 <p class="mt-3 text-center">
                   Not yet registered?
-                  <a href="{% url 'register' %}">Register here</a>
+                  <a href="{% url 'register' %}" class="text-bordeaux font-weight-bold">Register here</a>
                 </p>
               </form>
             </div>

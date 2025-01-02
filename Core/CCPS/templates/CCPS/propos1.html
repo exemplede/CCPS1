@@ -1,0 +1,264 @@
+{% extends "CCPS/base.html" %}
+{%load static%}
+
+{% block title %}propos1{% endblock title %}
+
+{% block style %}
+<style>
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+:root {
+  --primary-color: #800020;
+  --accent-color: #ff5c33;
+  --background-gradient: linear-gradient(135deg, #800020 0%, #ff5c33 100%);
+}
+
+/* Navigation */
+.navbar {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+/* Section en-tête */
+.header-section {
+  background: var(--background-gradient);
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+.header-section h1 {
+  font-size: 3.5rem;
+  animation: slideIn 1.5s ease;
+}
+.header-section p {
+  font-size: 1.2rem;
+  animation: fadeIn 1.5s ease 0.5s;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Section principale */
+.section-title {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.content-section {
+  padding: 4rem 0;
+}
+.leader-info {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.leader-info:hover {
+  transform: scale(1.05);
+}
+
+/* Boutons personnalisés */
+.btn-custom {
+  background-color: var(--accent-color);
+  color: white;
+  transition: background-color 0.3s;
+}
+.btn-custom:hover {
+  background-color: #ff7e50;
+}
+
+/* Couleur bordeaux pour la barre de navigation */
+.navbar {
+background-color: #800020; 
+font-size: 18px;/* taille pour reguler avec les autres entete */
+}
+
+/* Alignement des onglets à droite sur les grands écrans */
+.navbar-nav {
+margin-left: auto;
+}
+
+.navbar-toggler {
+border-color: white;
+}
+
+.navbar-toggler-icon {
+color: white;
+}
+
+/* Ajout d'une marge pour le logo */
+.navbar-brand {
+margin-right: 20px;
+}
+
+/* Ajout d'un espace pour compenser la barre de navigation fixe */
+body {
+padding-top: 60px; /* Ajuste la valeur si nécessaire */
+}
+.link-animation {
+display: inline-block; /* Pour permettre l'animation sur le bloc */
+padding: 20px; /* Ajoute un peu d'espace intérieur */
+color: #fff; /* Couleur du texte */
+text-decoration: none; /* Supprime le soulignement par défaut */
+background-color: #800020; /* Couleur de fond par défaut */
+border-radius: 5px; /* Bords arrondis */
+transition: all 0.3s ease; /* Transition douce pour les changements */
+}
+
+.link-animation:hover {
+transform: scale(1.05); /* Agrandir légèrement le div */
+background-color: #292123; /* Changer la couleur de fond au survol */
+color: white; /* Changer la couleur du texte au survol */
+box-shadow: 0 4px 20px rgba(97, 6, 6, 0.2); /* Ajoute une ombre */
+}
+.footerse {
+background-color: #3c2a3c; /* Couleur complémentaire au rouge bordeaux */
+color: #ffffff; /* Couleur du texte */
+padding: 60px 0;
+position: relative;
+overflow: hidden;
+}
+
+.footerse h3 {
+margin-bottom: 30px;
+font-size: 1.8em;
+text-align: center;
+position: relative;
+animation: fadeIn 0.5s ease-in-out; /* Animation d'apparition */
+}
+
+.footerse p {
+text-align: center;
+font-size: 1.1em;
+animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+}
+
+.footerse a {
+color: #ffcccc; /* Couleur des liens */
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footerse a:hover {
+color: #ffffff; /* Changer la couleur au survol */
+text-decoration: underline;
+}
+
+/* Effets des icônes de réseaux sociaux */
+.social-icons a {
+font-size: 2em;
+margin: 0 15px;
+transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+transform: scale(1.2); /* Agrandissement au survol */
+color: #ffcccc; /* Couleur au survol */
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+</style>
+
+{% endblock style %}
+
+
+{% block content %}
+   
+<!-- Section en-tête -->
+<header class="header-section">
+    <h1>Bienvenue au C2PS</h1>
+    <p>Votre partenaire pour l'innovation et le développement durable</p>
+</header>
+
+<!-- Présentation du Centre -->
+<section class="content-section container">
+    <h2 class="section-title">Présentation du Centre</h2>
+    <div class="row align-items-center mb-5">
+        <div class="col-md-4">
+            <img src="{% static "CCPS/president.jpg" %} " alt="Hermann BAYALA" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-8">
+            <p>Le Centre de Compétence Pluridisciplinaire et de Solutions de l'Université Nazi Boni (C2PS) a pour vocation de développer et de mettre en œuvre des solutions innovantes pour répondre aux défis majeurs de la société. Le centre se distingue par son engagement à fournir des résultats mesurables dans des délais précis et en utilisant des ressources optimisées, tout en adoptant une approche pluridisciplinaire et collaborative.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Mission et Objectifs -->
+<section class="content-section bg-light">
+    <h2 class="section-title">Mission et Objectifs</h2>
+    <div class="container">
+        <p>Le C2PS s'articule autour des axes suivants :</p>
+        <ul>
+            <li><strong>Responsabilité de résultats</strong> : Assurer la livraison de projets et de solutions selon des délais, des normes de qualité et des ressources bien définies.</li>
+            <li><strong>Développement de compétences clés</strong> : Offrir des formations et des compétences dans les domaines stratégiques tels que la cybersécurité, l'intelligence artificielle, l'Internet des objets (IoT), la robotique, et plus encore.</li>
+            <li><strong>Insertion socioprofessionnelle</strong> : Promouvoir des formations en alternance, qualifiantes et certifiantes pour favoriser l'employabilité des participants.</li>
+            <li><strong>Optimisation des ressources</strong> : Maximiser l'utilisation du matériel et des équipements disponibles grâce à des partenariats industriels et académiques locaux.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Projets Phare -->
+<section class="content-section">
+    <h2 class="section-title">Projets Phare</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Livestock Monitoring (Suivi du Bétail)</h3>
+                <p>Ce projet vise à suivre le déplacement des troupeaux pour mieux protéger le patrimoine national en bétail grâce à des solutions telles que l'identification unique des animaux, la géolocalisation, et le traitement des données en cloud. Ce projet se développe en plusieurs phases avec des ressources humaines comprenant des enseignants-chercheurs et des étudiants, ainsi que du matériel technologique avancé.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Compétition de Robots</h3>
+                <p>L'objectif est de développer des compétences en automatisation et en robotique au Burkina Faso. Ce projet implique la création de robots compétitifs pour améliorer les capacités de programmation, de mécanique et de contrôle à distance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Équipe Dirigeante -->
+<section class="content-section bg-light">
+    <h2 class="section-title">Équipe Dirigeante</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 leader-info">
+                <img src="{% static "CCPS/president.jpg" %}" alt="Hermann BAYALA" class="img-fluid rounded-circle mb-3" style="width: 100px;">
+                <h5>Hermann BAYALA</h5>
+                <p>Responsable du développement stratégique du C2PS, Hermann est un leader engagé dans l'innovation et le développement durable.</p>
+            </div>
+            <div class="col-md-6 leader-info">
+                <img src="{% static "CCPS/president.jpg" %}" alt="Dr. Mesmin Toundé DANDJINOU" class="img-fluid rounded-circle mb-3" style="width: 100px;">
+                <h5>Dr. Mesmin Toundé DANDJINOU</h5>
+                <p>Expert en recherche appliquée, Dr. DANDJINOU apporte son expertise pour promouvoir la croissance et la compétitivité au sein du C2PS.</p>
+            </div>
+            <div class="col-md-6 leader-info">
+                <img src="{% static "CCPS/president.jpg" %}" alt="Gabin KPODA" class="img-fluid rounded-circle mb-3" style="width: 100px;">
+                <h5>Gabin KPODA</h5>
+                <p>Gabin est un acteur clé dans la gestion des projets de robotique et de cybersécurité du centre.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content%}

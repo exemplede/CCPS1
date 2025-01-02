@@ -1,4 +1,6 @@
+
 {% extends "CCPS/base.html" %}
+{%load static%}
 
 {% block title %}A propos{% endblock title %}
 
@@ -6,107 +8,237 @@
 
     <style>
         
-        /* Police et couleurs principales */
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-
-        :root {
-            --primary-color: #800020;
-            --accent-color: #ff5c33;
-            --background-gradient: linear-gradient(135deg, #800020 0%, #ff5c33 100%);
-        }
         
-        /* Navigation */
-        .navbar {
-            background: rgba(128, 0, 32, 0.85);
-            transition: background 0.3s;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.8rem;
-        }
-
-        .nav-link {
-            color: #fff !important;
-        }
-
-        .navbar.scrolled {
-            background: var(--primary-color);
-        }
-
-        /* Header */
-        .header-section {
-            background: var(--background-gradient);
-            color: #fff;
-            text-align: center;
-            padding: 7rem 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .header-section h1 {
-            font-size: 3.5rem;
-            animation: slideIn 1.5s ease;
-        }
-        .header-section p {
-            font-size: 1.2rem;
-            animation: fadeIn 1.5s ease 0.5s;
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Formes flottantes dans le header */
-        .floating-circle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.6;
-            background-color: rgba(255, 255, 255, 0.2);
-            animation: float 6s ease-in-out infinite;
-        }
-        .circle1 { width: 200px; height: 200px; top: 10%; left: 5%; }
-        .circle2 { width: 150px; height: 150px; bottom: 15%; right: 10%; }
+            /* Police et couleurs principales */
+            body {
+                font-family: 'Poppins', sans-serif;
+                overflow-x: hidden;
+            }
+            :root {
+                --primary-color: #800020;
+                --accent-color: #ff5c33;
+                --background-gradient: linear-gradient(135deg, #800020 0%, #ff5c33 100%);
+            }
+            
+            /* Navigation */
+            .navbar {
+                background: rgba(128, 0, 32, 0.85);
+                transition: background 0.3s;
+            }
+            .navbar-brand {
+                font-weight: bold;
+                font-size: 1.8rem;
+            }
+            .nav-link {
+                color: #fff !important;
+            }
+            .navbar.scrolled {
+                background: var(--primary-color);
+            }
+    
+            /* Header */
+            .header-section {
+                background: var(--background-gradient);
+                color: #fff;
+                text-align: center;
+                padding: 7rem 1rem;
+                position: relative;
+                overflow: hidden;
+            }
+            .header-section h1 {
+                font-size: 3.5rem;
+                animation: slideIn 1.5s ease;
+            }
+            .header-section p {
+                font-size: 1.2rem;
+                animation: fadeIn 1.5s ease 0.5s;
+            }
+    
+            /* Animations */
+            @keyframes slideIn {
+                from { transform: translateY(-50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+    
+            /* Formes flottantes dans le header */
+            .floating-circle {
+                position: absolute;
+                border-radius: 50%;
+                opacity: 0.6;
+                background-color: rgba(255, 255, 255, 0.2);
+                animation: float 6s ease-in-out infinite;
+            }
+            .circle1 { width: 200px; height: 200px; top: 10%; left: 5%; }
+            .circle2 { width: 150px; height: 150px; bottom: 15%; right: 10%; }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+            }
+    
+            /* Section principale */
+            .section-title {
+                font-weight: 600;
+                color: var(--primary-color);
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            .content-section {
+                padding: 4rem 0;
+            }
+            .card:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s;
+            }
+    
+            /* Effets de survol pour les boutons */
+            .btn-custom {
+                background-color: var(--accent-color);
+                color: white;
+                transition: background-color 0.3s;
+            }
+            .btn-custom:hover {
+                background-color: #ff7e50;
+            }
+    
+            .footer {
+                background-color: #3c2a3c; /* Couleur complémentaire au rouge bordeaux */
+                color: #ffffff; /* Couleur du texte */
+                padding: 60px 0;
+                position: relative;
+                overflow: hidden;
+              }
+              
+              .footer h3 {
+                margin-bottom: 30px;
+                font-size: 1.8em;
+                text-align: center;
+                position: relative;
+                animation: fadeIn 0.5s ease-in-out; /* Animation d'apparition */
+              }
+              
+              .footer p {
+                text-align: center;
+                font-size: 1.1em;
+                animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+              }
+              
+              .footer a {
+                color: #ffcccc; /* Couleur des liens */
+                text-decoration: none;
+                transition: color 0.3s ease;
+              }
+              
+              .footer a:hover {
+                color: #ffffff; /* Changer la couleur au survol */
+                text-decoration: underline;
+              }
+              
+              /* Effets des icônes de réseaux sociaux */
+              .social-icons a {
+                font-size: 2em;
+                margin: 0 15px;
+                transition: transform 0.3s ease;
+              }
+              
+              .social-icons a:hover {
+                transform: scale(1.2); /* Agrandissement au survol */
+                color: #ffcccc; /* Couleur au survol */
+              }
+              
+              /* Animation d'apparition */
+              @keyframes fadeIn {
+                from {
+                  opacity: 0;
+                  transform: translateY(20px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+    
+            /* Section des témoignages */
+            .testimonial {
+                background-color: #f8f9fa;
+                border-left: 5px solid var(--primary-color);
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+                transition: transform 0.3s;
+            }
+            .testimonial:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            }
+    
+            /* Animations pour les icônes */
+            .icon {
+                font-size: 2rem;
+                transition: transform 0.3s;
+            }
+            .icon:hover {
+                transform: scale(1.2);
+            }
+            
+                /* Couleur bordeaux pour la barre de navigation */
+                .navbar {
+                  background-color: #800020; /* Couleur de fond rouge bordeaux */
+                }
+            
+                /* Alignement des onglets à droite sur les grands écrans */
+                .navbar-nav {
+                  margin-left: auto;
+                }
+            
+                .navbar-toggler {
+                  border-color: white;
+                }
+            
+                .navbar-toggler-icon {
+                  color: white;
+                }
+            
+                /* Ajout d'une marge pour le logo */
+                .navbar-brand {
+                  margin-right: 20px;
+                }
+            
+                /* Ajout d'un espace pour compenser la barre de navigation fixe */
+                body {
+                  padding-top: 60px; /* Ajuste la valeur si nécessaire */
+                }
+                .link-animation {
+                  display: inline-block; /* Pour permettre l'animation sur le bloc */
+                  padding: 20px; /* Ajoute un peu d'espace intérieur */
+                  color: #fff; /* Couleur du texte */
+                  text-decoration: none; /* Supprime le soulignement par défaut */
+                  background-color: #800020; /* Couleur de fond par défaut */
+                  border-radius: 5px; /* Bords arrondis */
+                  transition: all 0.3s ease; /* Transition douce pour les changements */
+              }
+              
+              .link-animation:hover {
+                  transform: scale(1.05); /* Agrandir légèrement le div */
+                  background-color: #292123; /* Changer la couleur de fond au survol */
+                  color: white; /* Changer la couleur du texte au survol */
+                  box-shadow: 0 4px 20px rgba(97, 6, 6, 0.2); /* Ajoute une ombre */
+              }
+              .full-width-div {
+                width: 100vw; /* Occupe toute la largeur de la fenêtre */
+                height: auto; /* Ajuste la hauteur en fonction du contenu */
+                margin: 0; /* Supprime les marges */
+                padding: 20px; /* Ajuste le padding pour l'espacement intérieur */
+                box-sizing: border-box; /* Prend en compte le padding dans la largeur totale */
+                background-color: #fff; /* Choisis une couleur de fond */
+                color: #3c2a3c;
+            }
+            
+              
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Section principale */
-        .section-title {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .content-section {
-            padding: 4rem 0;
-        }
-        .card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        .footer a {
-            color: #ff5c33;
-            text-decoration: none;
-        }
     </style>
     {% endblock style %}
 
@@ -131,63 +263,50 @@
             <h3>Qui sommes-nous ?</h3>
             <p>Le Centre de Compétence Pluridisciplinaire est une organisation dédiée à la recherche, l'innovation, et la collaboration multidisciplinaire pour relever les défis contemporains.</p>
             <p>Nous rassemblons des experts de divers domaines pour des solutions durables en matière de technologie, d'environnement, et de société.</p>
+            <button class="btn btn-custom"><a href="{% url "propos1" %}" target="_parent"> En savoir plus</a> </button>
         </div>
         <div class="col-md-6">
-            <img src="https://via.placeholder.com/500x300" class="img-fluid rounded shadow" alt="Centre">
+            <img src="{% static "CCPS/design.png" %}"class="img-fluid rounded shadow" alt="Centre">
         </div>
     </div>
 
     <div class="row align-items-center">
         <div class="col-md-6">
-            <img src="https://via.placeholder.com/500x300" class="img-fluid rounded shadow" alt="Historique">
+            <img src="{% static "CCPS/design.png"%}" class="img-fluid rounded shadow" alt="Historique">
         </div>
         <div class="col-md-6">
             <h3>Historique</h3>
             <p>Depuis sa création, notre centre a réalisé de nombreux projets novateurs et construit des partenariats solides dans les secteurs de l'IA, de l'IoT, et des énergies renouvelables.</p>
+            <button class="btn btn-custom">Explorer notre histoire</button>
         </div>
     </div>
 </section>
 
-<!-- Section équipe avec cartes animées -->
+<!-- Section témoignages -->
 <section class="content-section bg-light">
-    <h2 class="section-title">Notre Équipe</h2>
-    <div class="row g-4 text-center">
-        <div class="col-md-4">
-            <div class="card h-100 shadow">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dr. Jean Dupont">
-                <div class="card-body">
-                    <h5 class="card-title">Dr. Jean Dupont</h5>
-                    <p class="card-text">Expert en innovation technologique, spécialiste des solutions durables.</p>
+    <h2 class="section-title">Témoignages</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Le Centre de Compétence a transformé notre approche de l'innovation." - <strong>SAWADOGO A. Aziz</strong></p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Mme. Sophie Martin">
-                <div class="card-body">
-                    <h5 class="card-title">Mme. Sophie Martin</h5>
-                    <p class="card-text">Passionnée d’environnement, spécialisée en énergies renouvelables.</p>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Une équipe incroyablement dédiée et professionnelle." - <strong>KABORE Serge</strong></p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 shadow">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="M. Pierre Lefebvre">
-                <div class="card-body">
-                    <h5 class="card-title">M. Pierre Lefebvre</h5>
-                    <p class="card-text">Gestionnaire de projets, adepte de la collaboration et de l'innovation.</p>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Des solutions durables qui font la différence." - <strong>OUEDRAOGO Jean Claude </strong></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <p>Contactez-nous : <a href="mailto:contact@centrepluridisciplinaire.com">contact@centrepluridisciplinaire.com</a></p>
-    <p>Téléphone : +123 456 7890</p>
-    <p>&copy; 2023 Centre de Compétence Pluridisciplinaire. Tous droits réservés.</p>
-</footer>
+
 
 
 {% endblock content %}

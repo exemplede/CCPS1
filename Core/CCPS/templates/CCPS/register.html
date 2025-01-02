@@ -5,46 +5,108 @@
 {% endblock %}
 
 {% block style %}
-  <style>
-    main {
-      display: flex;
-      flex-direction: row;
-      height: 100vh;
-      background: blue;
-      align-items: center;
-    }
-    form {
-      background-color: red;
-      height: 10vh;
-    }
-  </style>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Couleur claire pour le fond */
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .register-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px #800020;
+  }
+
+  .register-container h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .register-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .register-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .register-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #800010;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .register-container button:hover {
+    background-color: #800020;
+  }
+
+  .register-container p {
+    text-align: center;
+    margin-top: 15px;
+    color: #555;
+  }
+
+  .register-container p a {
+    color: #800020;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .register-container p a:hover {
+    text-decoration: underline;
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-  <main>
-    <div class="container">
-      <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
+<main>
+  <div class="register-container">
+    <h3>Create Account</h3>
+    <form action="{% url 'register' %}" method="post">
+      {% csrf_token %}
 
-        <label for="fullname">fullname</label>
-        <input type="text" name="fullname" id="fullname" placeholder="enter a fullname" />
+      <label for="fullname">Full Name</label>
+      <input type="text" name="fullname" id="fullname" placeholder="Enter your full name" required>
 
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" placeholder="example@gamil.com" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
 
-        <label for="password">password</label>
-        <input type="password" name="password" id="password" placeholder="enter a password" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Enter your password" required>
 
-        <label for="re_password">password</label>
-        <input type="password" name="re_password" id="re_password" placeholder="confirm the password" />
+      <label for="re_password">Confirm Password</label>
+      <input type="password" name="re_password" id="re_password" placeholder="Confirm your password" required>
 
-        <button type="submit">login</button>
+      <button type="submit">Register</button>
 
-        <p>
-          Already registered ?
-          <a href="{% url 'login' %}">yes</a>
-        </p>
-      </form>
-    </div>
-  </main>
+      <p>Already registered? <a href="{% url 'login' %}">Login here</a></p>
+    </form>
+  </div>
+</main>
 {% endblock %}

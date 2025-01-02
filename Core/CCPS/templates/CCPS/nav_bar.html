@@ -1,10 +1,13 @@
+{% load static %}
+
 <!-- Barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container-fluid">
     <!-- Logo à gauche -->
-    <a class="navbar-brand" href="#"><img src="https://via.placeholder.com/50" alt="Logo" width="50" height="50" /></a>
+    <a class="navbar-brand" href="#"><img src="{% static 'logo2.png' %}" alt="Logo" width="50" height="50" /></a>
     <!-- Bouton hamburger pour petits écrans -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <a class="navbar-brand" href="#"><img src="https://via.placeholder.com/50" alt="Logo" width="50" height="50" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <!-- Liens de navigation -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -15,10 +18,10 @@
           <a class="nav-link" href="{% url 'about' %}">À propos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Nous contacter</a>
+          <a class="nav-link" href="{% url 'cont'%}">Nous contacter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'projects' %}">Projets</a>
+          <a class="nav-link" href="{% url 'projets' %}">Projets</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'equipements' %}">Équipement</a>
