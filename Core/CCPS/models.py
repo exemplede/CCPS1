@@ -60,9 +60,9 @@ class Project(models.Model):
         
         return self.content[:200]+'...'
 
-
+    
 class SiteVisit(models.Model):
-    count = models.IntegerField(default=0) 
+        created_at = models.DateTimeField(auto_now=True)
     
 def __str__(self):
         return f"Total Site Visits: {self.count}"

@@ -12,7 +12,7 @@ body {
 
 /* ____________---------- */
 .full-window-section {
-  background-image: url('im1.jpg'); /* Remplace cette URL avec ton image */
+  background-image: url("http://127.0.0.1:8000/static/CCPS/president.jpg"); /* Remplace cette URL avec ton image */
   background-size: cover;
   background-position: center;
   height: 100vh;

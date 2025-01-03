@@ -3,19 +3,26 @@ from .models import SiteVisit
 from django.contrib.auth import logout, login, authenticate
 from .models import User, Article, Image
 from .forms import EditArticleForm, ImageFormSet
+from django.utils import timezone
 
 
 def testView(request):
     return render(request, 'CCPS/base.html')
 
 def indexView(request):
-    visit_count = SiteVisit.objects.first().count if SiteVisit.objects.exists() else 0
-    return render(request, 'CCPS/index.html',
-                  context={
-                      'visit_count': visit_count,
-                      'articles': Article.objects.all()[:3]
-                    }
-                )
+        visits = SiteVisit.objects.all()
+        
+        now  = timezone.now()
+        
+        return render(request, 'CCPS/index.html',
+                    context={
+                        'visit_count': visits.count(),
+                        'day_visit_count': visits.filter(created_at__date=now.date()).count(),
+                        'month_visit_count':  visits.filter(created_at__month=now.month).count(),
+                        'year_visit_count':  visits.filter(created_at__year=now.year).count(),
+                        'articles': Article.objects.all()[:3]
+                        }
+                    )
     
 def proposView(request):
     return render(request, 'CCPS/propos.html')
@@ -159,3 +166,5 @@ def contView(request):
     return render(request, 'CCPS/cont.html')
 def propos1View(request):
     return render(request, 'CCPS/propos1.html')
+def filView(request):
+    return render(request, 'CCPS/fil.html')

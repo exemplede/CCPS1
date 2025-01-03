@@ -41,108 +41,182 @@
       justify-content: center;
       padding: 50px 0;
     }
+    
     .visit-section {
-      padding: 30px 0;
+      margin-top: 60px;
+      margin-bottom: 60px;
     }
     
-    /* Panneau en verre avec effet */
+    /* Effet vitre sur le panneau avec fond plus opaque pour améliorer la lisibilité */
     .glass-panel {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.7); /* Augmenter l'opacité pour améliorer la lisibilité */
+      backdrop-filter: blur(10px); /* Effet flou */
       border-radius: 15px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      animation: popIn 1.2s ease-in-out;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.5); /* Bordure plus nette */
     }
     
-    /* Effet de dégradé animé */
-    .glass-panel::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
-      animation: moveGradient 5s infinite linear;
-      pointer-events: none;
-      z-index: 0;
+    .glass-panel:hover {
+      transform: translateY(-5px); /* Légère élévation au survol */
     }
     
-    /* Contenu principal */
+    /* Titre */
     .visit-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #800020; /* Couleur pour le titre */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
     
+    /* Section des visites */
     .visit-display {
-      position: relative;
-      z-index: 1;
+      font-size: 1.25rem;
+      color: #333; /* Couleur de texte plus foncée pour le contraste */
+      margin-bottom: 20px;
     }
     
+    .visit-display p {
+      margin: 10px 0;
+      font-weight: 600;
+    }
+    
+    /* Compteur des visites avec un contraste amélioré */
     .visit-count {
-      font-size: 4rem;
-      font-weight: bold;
-      color: #ffdd00;
-      margin: 0;
-      animation: pulse 1.5s infinite;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffd700; /* Jaune doré vif pour attirer l'attention */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     }
     
+    /* Texte descriptif */
     .visit-text {
-      font-size: 1.2rem;
-      color: #ffffff;
-      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #444; /* Couleur plus foncée pour les descriptions */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
     
-    /* Animations */
-    @keyframes popIn {
+    /* Animation du texte */
+    @keyframes slideIn {
       from {
-        transform: scale(0.8);
+        transform: translateY(20px);
         opacity: 0;
       }
       to {
-        transform: scale(1);
+        transform: translateY(0);
         opacity: 1;
       }
     }
     
-    @keyframes moveGradient {
-      from {
-        transform: translate(0, 0);
+    /* Application de l'animation aux éléments de texte */
+    .visit-display p {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+    
+    .visit-display p:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .visit-display p:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .visit-display p:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .visit-display p:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    
+    /* Rendre la section plus flexible sur différentes tailles d'écran */
+    @media (max-width: 1200px) {
+      .visit-section {
+        margin-top: 40px;
+        margin-bottom: 40px;
       }
-      to {
-        transform: translate(50%, 50%);
+    
+      .glass-panel {
+        padding: 30px;
+      }
+    
+      .visit-title {
+        font-size: 2rem;
+      }
+    
+      .visit-count {
+        font-size: 2.5rem;
+      }
+    
+      .visit-display p {
+        font-size: 1.1rem;
       }
     }
     
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
+    @media (max-width: 768px) {
+      .glass-panel {
+        padding: 20px;
       }
-      50% {
-        transform: scale(1.1);
+    
+      .visit-title {
+        font-size: 1.8rem;
+      }
+    
+      .visit-count {
+        font-size: 2rem;
+      }
+    
+      .visit-display p {
+        font-size: 1rem;
       }
     }
+    
+    @media (max-width: 480px) {
+      .glass-panel {
+        padding: 15px;
+      }
+    
+      .visit-title {
+        font-size: 1.6rem;
+      }
+    
+      .visit-count {
+        font-size: 1.8rem;
+      }
+    
+      .visit-display p {
+        font-size: 0.9rem;
+      }
+    }
+   .full-window-section {
+      background-image: url("{% static "CCPS/president.jpg" %}"); /* Remplace cette URL avec ton image */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
    
   </style>
 {% endblock %}
 
 {% block content %}
-  <section class="full-window-section">
-    <div class="section-content">
-      <h1 class="main-text">Centre De Compétence Pluridisciplinaire</h1>
-      <p class="welcome-text">Bienvenue dans le site officiel</p>
-      <p class="welcomse-text">Nous vous proposons une large gamme de services et d'innovations pour renforcer vos compétences.</p>
-    </div>
-  </section>
+<section class="full-window-section">
+  <div class="section-content">
+    <h1 class="main-text">Centre de Compétences Pluridisciplinaires et Solutions</h1>
+    <p class="welcome-text">Bienvenue sur le site officiel du C2PS</p>
+    <p class="welcomse-text">Nous vous proposons une large gamme de services et d'innovations pour renforcer vos compétences.</p>
+  </div>
+</section>
+
 
   <section class="container">
     <div class="row content-section">
@@ -164,15 +238,20 @@
   <section class="container my-5">
     <div class="row justify-content-center align-items-center visit-section">
       <!-- Conteneur principal -->
-      <div class="col-lg-10 text-center glass-panel">
+      <div class="col-lg-10 col-md-12 col-sm-12 text-center glass-panel">
         <h2 class="visit-title">Nombre de Visites</h2>
         <div class="visit-display">
           <p class="visit-count">{{ visit_count }}</p>
+          <p>{{ visit_count }} visites</p>
+          <p>Aujourd'hui : {{ day_visit_count }} visites</p>
+          <p>Ce mois-ci : {{ month_visit_count }} visites</p>
+          <p>Cette année : {{ year_visit_count }} visites</p>
           <p class="visit-text">visites enregistrées</p>
         </div>
       </div>
     </div>
   </section>
+  
 
   
 
@@ -211,7 +290,7 @@
     </a>
     
     <!-- Section pour Équipement -->
-    <a href="equipement.html" style="text-decoration: none; color: inherit;">
+    <a href="{% url "fil" %}" style="text-decoration: none; color: inherit;">
       <div class="row section-container">
         <!-- Cercle à gauche -->
         <div class="col-lg-4 circle">

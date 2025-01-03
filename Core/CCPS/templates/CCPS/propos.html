@@ -236,6 +236,16 @@
                 background-color: #fff; /* Choisis une couleur de fond */
                 color: #3c2a3c;
             }
+            .btn-link {
+                text-decoration: none; /* Supprime le soulignement */
+                color: inherit; /* Hérite la couleur du parent */
+                display: inline-block; /* Permet de respecter les dimensions du bouton */
+            }
+            
+            .btn-link:hover {
+                color: inherit; /* Pas de changement de couleur au survol */
+                text-decoration: none; /* Aucun soulignement au survol */
+            }
             
               
         
@@ -263,7 +273,10 @@
             <h3>Qui sommes-nous ?</h3>
             <p>Le Centre de Compétence Pluridisciplinaire est une organisation dédiée à la recherche, l'innovation, et la collaboration multidisciplinaire pour relever les défis contemporains.</p>
             <p>Nous rassemblons des experts de divers domaines pour des solutions durables en matière de technologie, d'environnement, et de société.</p>
-            <button class="btn btn-custom"><a href="{% url "propos1" %}" target="_parent"> En savoir plus</a> </button>
+            <button class="btn btn-custom">
+                <a href="{% url 'propos1' %}" class="btn-link" target="_parent">En savoir plus</a>
+            </button>
+            
         </div>
         <div class="col-md-6">
             <img src="{% static "CCPS/design.png" %}"class="img-fluid rounded shadow" alt="Centre">
@@ -277,7 +290,9 @@
         <div class="col-md-6">
             <h3>Historique</h3>
             <p>Depuis sa création, notre centre a réalisé de nombreux projets novateurs et construit des partenariats solides dans les secteurs de l'IA, de l'IoT, et des énergies renouvelables.</p>
-            <button class="btn btn-custom">Explorer notre histoire</button>
+            <button class="btn btn-custom">
+                <a href="{% url 'fil' %}" class="btn-link" target="_parent">Explorer notre histoire</a>
+            </button>
         </div>
     </div>
 </section>

@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from .views import (
     indexView, proposView, equipementsView, projetsView, loginView, registerView, 
     dashboardView, testView, articleDetailsView, articleDeleteView, articleEditView,
-    imageDeleteView, missionView, equipeView,contView,propos1View
+    imageDeleteView, missionView, equipeView,contView,propos1View,filView
 )
 
 urlpatterns = [
@@ -23,7 +23,8 @@ urlpatterns = [
     path("mission/", missionView, name="mission"),
     path("equipe/", equipeView, name="equipe"),
     path("cont/", contView, name="cont"),
-    path("propos/propos1/", propos1View, name="propos1")
+    path("propos/propos1/", propos1View, name="propos1"),
+    path("propos/fil/", filView, name="fil")
 ]
 
 if settings.DEBUG:
